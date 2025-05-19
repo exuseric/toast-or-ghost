@@ -38,7 +38,7 @@ export function UserMenu({ user, vertical = false }: UserMenuProps) {
       <div className="flex flex-col space-y-4">
         <div className="flex items-center gap-2">
           <Avatar className="h-8 w-8">
-            <AvatarImage src={user.user_metadata.avatar_url || "/placeholder.svg?height=32&width=32"} alt={user.user_metadata.full_name} />
+            <AvatarImage src={"https://api.dicebear.com/9.x/pixel-art/svg"} alt={user.user_metadata.full_name} />
             <AvatarFallback>{createInitials(user.user_metadata.full_name || "")}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
@@ -78,7 +78,7 @@ export function UserMenu({ user, vertical = false }: UserMenuProps) {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full" aria-label="User menu">
           <Avatar className="h-8 w-8">
-            <AvatarImage src={user.user_metadata.avatar_url || "/placeholder.svg?height=32&width=32"} alt={user.user_metadata.full_name} />
+            <AvatarImage src={"https://api.dicebear.com/9.x/pixel-art/svg"} alt={user.user_metadata.full_name} />
             <AvatarFallback>{createInitials(user.user_metadata.full_name || "")}</AvatarFallback>
           </Avatar>
         </Button>
