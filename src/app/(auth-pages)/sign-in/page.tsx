@@ -4,9 +4,24 @@ import SubmitButton from "@/components/button/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import { createClient } from "@/lib/supabase/server";
+import { Button } from "@/components/ui/button";
 
 export default async function Login(props: { searchParams: Promise<Message> }) {
   const searchParams = await props.searchParams;
+  const supabase = await createClient();
+  const {data: {user}} = await supabase.auth.getUser();
+
+  if (user) {
+    return (
+      <div className="page-wrapper flex flex-col gap-4 items-start justify-center h-full min-h-screen">
+        <FormMessage message={{message: "You are already signed in"}} />
+        <Button asChild>
+          <Link href="/organiser">Go to your dashboard</Link>
+        </Button>
+      </div>
+    )
+  }
   return (
     <div className="page-wrapper flex flex-col items-center justify-center h-full min-h-screen">
       <form className="flex flex-col w-max h-max">
