@@ -18,5 +18,5 @@ export default async function signInAction(formData: FormData) {
     return encodedRedirect("error", "/sign-in", error.message);
   }
 
-  return redirect("/protected");
+  return redirect("/organiser");
 };
