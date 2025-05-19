@@ -10,6 +10,9 @@ export const env = createEnv({
     DATABASE_URL: z.string().url(),
     SUPABASE_URL: z.string().url(),
     SUPABASE_ANON_KEY: z.string(),
+    MAX_CLIENTS: z.string(),
+    IDLE_TIMEOUT: z.string(),
+    CONNECTION_TIMEOUT: z.string(),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
@@ -32,6 +35,9 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     SUPABASE_URL: process.env.SUPABASE_URL,
     SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY,
+    MAX_CLIENTS: process.env.MAX_CLIENTS,
+    IDLE_TIMEOUT: process.env.IDLE_TIMEOUT,
+    CONNECTION_TIMEOUT: process.env.CONNECTION_TIMEOUT,
     NODE_ENV: process.env.NODE_ENV,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
